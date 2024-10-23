@@ -26,12 +26,20 @@ const ExpenseChart = ({ expenses }) => {
     ],
   };
 
+  console.log(data.labels);
+
   return (
     <div className=" flex flex-col p-6">
-      <h3 className="text-xl font-semibold text-center mb-4">Expenses Breakdown</h3>
-      <div className="flex w-64 sm:w-96 sm:h-96">
-        <Doughnut data={data} />
-      </div>
+      <h3 className="text-xl font-semibold text-center mb-4">
+        Expenses Breakdown
+      </h3>
+      {data.labels.length === 0 ? (
+        <div className=" w-full text-center border p-2 rounded">Empty</div>
+      ) : (
+        <div className="flex w-64 sm:w-96 sm:h-96">
+          <Doughnut data={data} />
+        </div>
+      )}
     </div>
   );
 };
